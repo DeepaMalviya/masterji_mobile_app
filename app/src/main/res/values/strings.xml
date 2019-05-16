@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DummyApplication</string>
+
+    <string name="title_new_order">New Order</string>
+    <string name="title_track_order">Track Order</string>
+    <string name="title_favorites">Favorites</string>
+    <string name="title_catalog">Catalog</string>
+</resources>
