@@ -97,8 +97,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void findViewByIdMethod() {
         textViewLocation = findViewById(R.id.textViewLocation);
+/*
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+*/
     }
 
     private void init() {
@@ -133,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+/*
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -155,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
     };
+*/
 
     private void updateLocationUI() {
         if (mCurrentLocation != null) {
