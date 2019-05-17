@@ -1,4 +1,3 @@
-<!--
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,21 +7,162 @@
     android:orientation="vertical"
     tools:context=".activity.MainActivity">
 
-    <TextView
-        android:id="@+id/textViewLocation"
-        android:padding="10dp"
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Your Loction"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.095" />
+        android:layout_margin="10dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        app:contentPadding="5dp">
 
-</LinearLayout>-->
+        <TextView
+            android:id="@+id/textViewLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Your Location"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.095" />
+
+    </android.support.v7.widget.CardView>
+
+
+    <ImageView
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:src="@drawable/men" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+
+        android:weightSum="1">
+
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight=".5"
+            card_view:cardCornerRadius="4dp"
+            card_view:contentPadding="5dp">
+
+            <ImageView
+                android:id="@+id/imagee"
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/men" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+
+            android:layout_marginRight="10dp"
+            android:layout_weight=".5"
+            card_view:cardCornerRadius="4dp"
+            card_view:contentPadding="5dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/men" />
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+
+        android:weightSum="1">
+
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight=".5"
+            card_view:cardCornerRadius="4dp"
+            card_view:contentPadding="5dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/men" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight=".5"
+            card_view:cardCornerRadius="4dp"
+            card_view:contentPadding="5dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/men" />
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:src="@drawable/men" />
+
+</LinearLayout>
+
+    <!--
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -33,9 +173,9 @@
 
     <TextView
         android:id="@+id/textViewLocation"
-        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="10dp"
         android:text="Your Loction"
         android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -45,6 +185,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.095" />
 
+<include layout="@layout/row_category"/>
+&lt;!&ndash;
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="0dp"
@@ -56,5 +198,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/navigation" />
+&ndash;&gt;
 
-</android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>-->

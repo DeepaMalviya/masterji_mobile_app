@@ -66,8 +66,7 @@ public class CategoryActivity extends AppCompatActivity {
         a = new Category("Born to Die", 12, covers[3]);
         albumList.add(a);
 
-        a = new Category("Honeymoon", 14, covers[4]);
-        albumList.add(a);
+
 
 
         adapter.notifyDataSetChanged();

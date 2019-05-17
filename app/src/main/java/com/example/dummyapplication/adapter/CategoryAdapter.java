@@ -27,9 +27,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
 
         public MyViewHolder(View view) {
             super(view);
-            title = (TextView) view.findViewById(R.id.title);
+           // title = (TextView) view.findViewById(R.id.title);
             //  count = (TextView) view.findViewById(R.id.count);
-            thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
+            thumbnail = (ImageView) view.findViewById(R.id.imageCat);
             //overflow = (ImageView) view.findViewById(R.id.overflow);
         }
     }
@@ -52,15 +52,16 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         Category album = albumList.get(position);
-        holder.title.setText(album.getName());
-        holder.count.setText(album.getNumOfSongs() + " songs");
+      //  holder.title.setText(album.getName());
+       // holder.count.setText(album.getNumOfSongs() + " songs");
 
         // loading album cover using Glide library
         Glide.with(mContext).load(album.getThumbnail()).into(holder.thumbnail);
-
-        holder.overflow.setOnClickListener(new View.OnClickListener() {
+        holder.thumbnail.setImageResource(R.drawable.men);
+        holder.thumbnail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(mContext, ProductDetailsActivity.class);
                 mContext.startActivity(intent);
             }

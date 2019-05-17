@@ -21,6 +21,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,7 +62,7 @@ import butterknife.ButterKnife;
 public class MainActivity2 extends AppCompatActivity {
     TextView textViewLocation;
     private static final String TAG = "MainActivity";
-
+    ImageView imagee;
     private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in Meters
     private static final long MINIMUM_TIME_BETWEEN_UPDATES = 1000; // in Milliseconds
     protected LocationManager locationManager;
@@ -77,16 +79,25 @@ public class MainActivity2 extends AppCompatActivity {
     }
 
     private void setOnclickData() {
-
+        imagee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity2.this, CategoryActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void findViewByIdMethod() {
         textViewLocation = findViewById(R.id.textViewLocation);
-        BottomNavigationView navView = findViewById(R.id.nav_view);
+        imagee = findViewById(R.id.imagee);
+        /*BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+   */
     }
 
     private void init() {
+        Log.e(TAG, "init: ");
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -140,6 +151,7 @@ public class MainActivity2 extends AppCompatActivity {
                     "New Location \n Longitude: %1$s \n Latitude: %2$s",
                     location.getLongitude(), location.getLatitude()
             );
+            Log.e(TAG, "onLocationChanged: " + message);
             getAddressMethod(location.getLatitude(), location.getLongitude());
             Toast.makeText(MainActivity2.this, message, Toast.LENGTH_LONG).show();
         }
@@ -164,6 +176,7 @@ public class MainActivity2 extends AppCompatActivity {
     }
 
     private void getAddressMethod(double latitude, double longitude) {
+        Log.e(TAG, "getAddressMethod: "+latitude + "" + longitude);
         Geocoder geocoder;
         List<Address> addresses = null;
         geocoder = new Geocoder(this, Locale.getDefault());
@@ -174,7 +187,7 @@ public class MainActivity2 extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        String address = addresses.get(0).getAddressLine(0); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
+        //String address = addresses.get(0).getAddressLine(0); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
         String city = addresses.get(0).getLocality();
         String state = addresses.get(0).getAdminArea();
         String country = addresses.get(0).getCountryName();
@@ -184,6 +197,7 @@ public class MainActivity2 extends AppCompatActivity {
         textViewLocation.setText(city + " ," + state + " ," + country);
     }
 
+/*
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -206,6 +220,7 @@ public class MainActivity2 extends AppCompatActivity {
             return false;
         }
     };
+*/
 
 
 }

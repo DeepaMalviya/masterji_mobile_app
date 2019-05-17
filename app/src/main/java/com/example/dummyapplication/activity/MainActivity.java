@@ -6,6 +6,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Looper;
@@ -17,6 +19,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,8 +48,11 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -53,7 +60,7 @@ import butterknife.OnClick;
 public class MainActivity extends AppCompatActivity {
     TextView textViewLocation;
     private static final String TAG = "MainActivity";
-
+    ImageView imagee;
     // location last updated time
     private String mLastUpdateTime;
 
@@ -92,13 +99,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setOnclickData() {
-
+        imagee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void findViewByIdMethod() {
         textViewLocation = findViewById(R.id.textViewLocation);
+        imagee = findViewById(R.id.imagee);
+
+/*
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+*/
     }
 
     private void init() {
@@ -133,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+/*
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -155,22 +173,49 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
     };
+*/
 
     private void updateLocationUI() {
         if (mCurrentLocation != null) {
+            getAddressMethod(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude());
+
+/*
             textViewLocation.setText(
                     "Lat: " + mCurrentLocation.getLatitude() + ", " +
                             "Lng: " + mCurrentLocation.getLongitude()
             );
+*/
 
             // giving a blink animation on TextView
             textViewLocation.setAlpha(0);
             textViewLocation.animate().alpha(1).setDuration(300);
 
             // location last updated time
-            textViewLocation.setText("Last updated on: " + mLastUpdateTime);
+            //textViewLocation.setText("Last updated on: " + mLastUpdateTime);
         }
 
+    }
+
+    private void getAddressMethod(double latitude, double longitude) {
+        Log.e(TAG, "getAddressMethod: "+latitude + "" + longitude);
+        Geocoder geocoder;
+        List<Address> addresses = null;
+        geocoder = new Geocoder(this, Locale.getDefault());
+
+        try {
+            addresses = geocoder.getFromLocation(latitude, longitude, 1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //String address = addresses.get(0).getAddressLine(0); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
+        String city = addresses.get(0).getLocality();
+        String state = addresses.get(0).getAdminArea();
+        String country = addresses.get(0).getCountryName();
+        String postalCode = addresses.get(0).getPostalCode();
+        String knownName = addresses.get(0).getFeatureName();
+
+        textViewLocation.setText(city + " , " + state + " , " + country);
     }
 
     private void startLocationUpdates() {
@@ -182,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onSuccess(LocationSettingsResponse locationSettingsResponse) {
                         Log.i(TAG, "All location settings are satisfied.");
 
-                        Toast.makeText(getApplicationContext(), "Started location updates!", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getApplicationContext(), "Started location updates!", Toast.LENGTH_SHORT).show();
 
                         //noinspection MissingPermission
                         mFusedLocationClient.requestLocationUpdates(mLocationRequest,
@@ -213,7 +258,7 @@ public class MainActivity extends AppCompatActivity {
                                         "fixed here. Fix in Settings.";
                                 Log.e(TAG, errorMessage);
 
-                                Toast.makeText(MainActivity.this, errorMessage, Toast.LENGTH_LONG).show();
+                              //  Toast.makeText(MainActivity.this, errorMessage, Toast.LENGTH_LONG).show();
                         }
 
                         updateLocationUI();
