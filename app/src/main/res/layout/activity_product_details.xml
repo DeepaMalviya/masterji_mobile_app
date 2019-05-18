@@ -33,6 +33,7 @@
                     android:layout_margin="20dp">
 
                     <ImageView
+                        android:id="@+id/mainImage"
                         android:layout_width="match_parent"
                         android:layout_height="300dp"
                         android:adjustViewBounds="true"
@@ -55,14 +56,40 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
+
                     android:background="@drawable/square_border"
                     android:padding="5dp">
 
                     <ImageView
+                        android:id="@+id/imageOne"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:adjustViewBounds="true"
                         android:scaleType="fitXY"
+
+                        android:src="@drawable/men" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_margin="5dp"
+
+
+                    android:background="@drawable/square_border"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:id="@+id/imageTwo"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitXY"
+
+
                         android:src="@drawable/men" />
 
                 </LinearLayout>
@@ -72,15 +99,22 @@
                     android:layout_height="wrap_content"
 
                     android:layout_margin="5dp"
+
+
                     android:background="@drawable/square_border"
+
                     android:padding="5dp">
 
                     <ImageView
+                        android:id="@+id/imageThree"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:adjustViewBounds="true"
                         android:scaleType="fitXY"
+
+
                         android:src="@drawable/men" />
+
 
                 </LinearLayout>
 
@@ -89,31 +123,19 @@
                     android:layout_height="wrap_content"
 
                     android:layout_margin="5dp"
+
+
                     android:background="@drawable/square_border"
                     android:padding="5dp">
 
                     <ImageView
+                        android:id="@+id/imageFour"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:adjustViewBounds="true"
                         android:scaleType="fitXY"
-                        android:src="@drawable/men" />
 
-                </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:layout_margin="5dp"
-                    android:background="@drawable/square_border"
-                    android:padding="5dp">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:adjustViewBounds="true"
-                        android:scaleType="fitXY"
                         android:src="@drawable/men" />
 
                 </LinearLayout>
@@ -241,8 +263,8 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="80dp"
-                            android:src="@drawable/men" />
 
+                            android:src="@drawable/men" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -285,14 +307,22 @@
                         android:layout_weight=".4"
                         android:gravity="center">
 
-                        <RadioButton
+                        <RadioGroup
+                            android:id="@+id/radioGroup"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="10dp"
-                            android:paddingLeft="10dp"
-                            android:textColor="@color/black"
-                            android:textStyle="normal" />
+                            android:layout_height="wrap_content">
+
+                            <RadioButton
+                                android:id="@+id/radio"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="10dp"
+                                android:paddingLeft="10dp"
+                                android:textColor="@color/black"
+                                android:textStyle="normal" />
+                        </RadioGroup>
+
 
                     </LinearLayout>
 
@@ -336,6 +366,7 @@
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -352,7 +383,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_weight=".4"
+
                     android:src="@drawable/ic_cancel_black_24dp"
+
                     android:visibility="invisible" />
 
                 <TextView
@@ -361,7 +394,10 @@
                     android:layout_weight=".3"
                     android:paddingLeft="10dp"
                     android:text="Standard Tousers"
+
+
                     android:textColor="@color/gray"
+
                     android:textStyle="normal" />
 
                 <TextView
@@ -372,7 +408,10 @@
                     android:paddingRight="10dp"
                     android:text="Rs. 1800"
                     android:textAlignment="textEnd"
+
+
                     android:textColor="@color/gray"
+
                     android:textStyle="normal" />
 
             </LinearLayout>
@@ -393,6 +432,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_weight=".4"
+
                     android:src="@drawable/ic_cancel_black_24dp" />
 
                 <TextView
@@ -401,7 +441,10 @@
                     android:layout_weight=".3"
                     android:paddingLeft="10dp"
                     android:text="Standard Tousers"
+
+
                     android:textColor="@color/gray"
+
                     android:textStyle="normal" />
 
                 <TextView
@@ -412,7 +455,10 @@
                     android:paddingRight="10dp"
                     android:text="Rs. 1800"
                     android:textAlignment="textEnd"
+
+
                     android:textColor="@color/gray"
+
                     android:textStyle="normal" />
 
             </LinearLayout>
@@ -475,7 +521,10 @@
                     android:paddingRight="10dp"
                     android:text="(Inclusive of all Taxes)"
                     android:textAlignment="textEnd"
+
+
                     android:textColor="@color/gray"
+
                     android:textStyle="normal" />
 
 

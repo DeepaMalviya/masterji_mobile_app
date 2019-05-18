@@ -22,7 +22,7 @@ import java.util.List;
 public class CategoryActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private CategoryAdapter adapter;
-    private List<Category> albumList;
+    private List<Category> categoryList;
 
 
     @Override
@@ -31,8 +31,8 @@ public class CategoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_category);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
-        albumList = new ArrayList<>();
-        adapter = new CategoryAdapter(this, albumList);
+        categoryList = new ArrayList<>();
+        adapter = new CategoryAdapter(this, categoryList);
 
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(mLayoutManager);
@@ -54,17 +54,17 @@ public class CategoryActivity extends AppCompatActivity {
                 R.drawable.women,
                 R.drawable.men};
 
-        Category a = new Category("True Romance", 13, covers[0]);
-        albumList.add(a);
+        Category a = new Category("Men", 13, covers[0]);
+        categoryList.add(a);
 
-        a = new Category("Xscpae", 8, covers[1]);
-        albumList.add(a);
+        a = new Category("Women", 8, covers[1]);
+        categoryList.add(a);
 
-        a = new Category("Maroon 5", 11, covers[2]);
-        albumList.add(a);
+        a = new Category("Get a Quote", 11, covers[2]);
+        categoryList.add(a);
 
-        a = new Category("Born to Die", 12, covers[3]);
-        albumList.add(a);
+        a = new Category("Catalog", 12, covers[3]);
+        categoryList.add(a);
 
 
 

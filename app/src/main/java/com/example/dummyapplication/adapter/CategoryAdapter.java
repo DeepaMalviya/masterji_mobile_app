@@ -19,10 +19,10 @@ import java.util.List;
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyViewHolder> {
 
     private Context mContext;
-    private List<Category> albumList;
+    private List<Category> categoryList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView title, count;
+        public TextView tvName, count;
         public ImageView thumbnail, overflow;
 
         public MyViewHolder(View view) {
@@ -30,14 +30,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
            // title = (TextView) view.findViewById(R.id.title);
             //  count = (TextView) view.findViewById(R.id.count);
             thumbnail = (ImageView) view.findViewById(R.id.imageCat);
+            tvName = (TextView) view.findViewById(R.id.tvName);
             //overflow = (ImageView) view.findViewById(R.id.overflow);
         }
     }
 
 
-    public CategoryAdapter(Context mContext, List<Category> albumList) {
+    public CategoryAdapter(Context mContext, List<Category> categoryList) {
         this.mContext = mContext;
-        this.albumList = albumList;
+        this.categoryList = categoryList;
     }
 
     @Override
@@ -51,8 +52,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
-        Category album = albumList.get(position);
-      //  holder.title.setText(album.getName());
+        Category album = categoryList.get(position);
+        holder.tvName.setText(album.getName());
        // holder.count.setText(album.getNumOfSongs() + " songs");
 
         // loading album cover using Glide library
@@ -71,7 +72,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
 
     @Override
     public int getItemCount() {
-        return albumList.size();
+        return categoryList.size();
     }
 }
 

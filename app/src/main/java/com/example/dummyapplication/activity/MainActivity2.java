@@ -60,7 +60,7 @@ import java.util.Locale;
 import butterknife.ButterKnife;
 
 public class MainActivity2 extends AppCompatActivity {
-    TextView textViewLocation;
+   /* TextView textViewLocation;
     private static final String TAG = "MainActivity";
     ImageView imagee;
     private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in Meters
@@ -91,9 +91,9 @@ public class MainActivity2 extends AppCompatActivity {
     private void findViewByIdMethod() {
         textViewLocation = findViewById(R.id.textViewLocation);
         imagee = findViewById(R.id.imagee);
-        /*BottomNavigationView navView = findViewById(R.id.nav_view);
+        *//*BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-   */
+   *//*
     }
 
     private void init() {
@@ -197,7 +197,7 @@ public class MainActivity2 extends AppCompatActivity {
         textViewLocation.setText(city + " ," + state + " ," + country);
     }
 
-/*
+*//*
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -220,7 +220,7 @@ public class MainActivity2 extends AppCompatActivity {
             return false;
         }
     };
+*//*
+
 */
-
-
 }
